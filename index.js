@@ -33,7 +33,7 @@ const corsOptions = {
   },
 };
 
-app.use(cors({ origin: process.env.FRONTEND_URL }));
+app.use(cors({ origin: "https://mern-apv-frontend-sand.vercel.app" }));
 
 //Permitir el envío de datos
 app.use(express.json());
