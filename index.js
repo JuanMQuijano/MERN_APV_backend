@@ -33,7 +33,7 @@ const corsOptions = {
   },
 };
 
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 //Permitir el envío de datos
 app.use(express.json());
