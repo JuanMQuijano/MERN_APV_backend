@@ -20,19 +20,6 @@ const app = new express();
 //Conectamos la BD
 conectarDB();
 
-const dominiosPermitidos = [process.env.FRONTEND_URL];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (dominiosPermitidos.indexOf(origin) !== -1) {
-      //El origen del request está permitido
-      callback(null, true);
-    } else {
-      callback(new Error("No permitido por CORS"));
-    }
-  },
-};
-
 /** CORS setting with OPTIONS pre-flight handling */
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -46,7 +33,7 @@ app.use(function (req, res, next) {
   else next();
 });
 
-app.use(cors({ origin: "https://mern-apv-frontend-sand.vercel.app" }));
+app.use(cors({ origin: "*" }));
 
 //Permitir el envío de datos
 app.use(express.json());
